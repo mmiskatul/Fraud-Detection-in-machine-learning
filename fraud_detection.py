@@ -19,3 +19,13 @@ oldbalanceDest =st.number_input("Old Balance (Receiver)",min_value=0.0,value=0.0
 newbalanceDest =st.number_input("New Balance (Receiver)",min_value=0.0,value=0.0) 
 
 
+if st.button("Predict"):
+    input_dat =pd.DataFrame([{
+        "type": transaction_type ,
+        "amount":amount,
+        "oldbalanceOrg":oldbalanceOrg,
+        "newbalanceOrig":newbalanceOrig,
+        "oldbalanceDest":oldbalanceDest,
+        "newbalanceDest":newbalanceDest
+    }])
+    

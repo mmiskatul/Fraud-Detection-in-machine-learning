@@ -33,3 +33,8 @@ if st.button("Predict"):
 predictions =model.predict(input_data)[0] 
 
 st.subheader(f"Prediction : '{int(predictions)}'") 
+
+if predictions==1 : 
+    st.error("This Transacition can be Fraud") 
+else : 
+    st.success("This transaction looks like it is not a fraud ")

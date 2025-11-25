@@ -18,23 +18,21 @@ newbalanceOrig = st.number_input("New Balance (Sender)",min_value=0.0,value=9000
 oldbalanceDest =st.number_input("Old Balance (Receiver)",min_value=0.0,value=0.0)
 newbalanceDest =st.number_input("New Balance (Receiver)",min_value=0.0,value=0.0) 
 
-
 if st.button("Predict"):
-    input_data =pd.DataFrame([{
-        "type": transaction_type ,
-        "amount":amount,
-        "oldbalanceOrg":oldbalanceOrg,
-        "newbalanceOrig":newbalanceOrig,
-        "oldbalanceDest":oldbalanceDest,
-        "newbalanceDest":newbalanceDest
+    input_data = pd.DataFrame([{
+        "type": transaction_type,
+        "amount": amount,
+        "oldbalanceOrg": oldbalanceOrg,
+        "newbalanceOrig": newbalanceOrig,
+        "oldbalanceDest": oldbalanceDest,
+        "newbalanceDest": newbalanceDest
     }])
-    
 
-predictions =model.predict(input_data)[0] 
+    predictions = model.predict(input_data)[0]
 
-st.subheader(f"Prediction : '{int(predictions)}'") 
+    st.subheader(f"Prediction: '{int(predictions)}'")
 
-if predictions==1 : 
-    st.error("This Transacition can be Fraud") 
-else : 
-    st.success("This transaction looks like it is not a fraud ")
+    if predictions == 1:
+        st.error("This Transaction can be Fraud")
+    else:
+        st.success("This transaction looks like it is not a fraud")

@@ -20,7 +20,7 @@ newbalanceDest =st.number_input("New Balance (Receiver)",min_value=0.0,value=0.0
 
 
 if st.button("Predict"):
-    input_dat =pd.DataFrame([{
+    input_data =pd.DataFrame([{
         "type": transaction_type ,
         "amount":amount,
         "oldbalanceOrg":oldbalanceOrg,
@@ -29,3 +29,7 @@ if st.button("Predict"):
         "newbalanceDest":newbalanceDest
     }])
     
+
+predictions =model.predict(input_data)[0] 
+
+st.subheader(f"Prediction : '{int(predictions)}'") 
